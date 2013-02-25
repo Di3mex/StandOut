@@ -467,14 +467,6 @@ public abstract class StandOutWindow extends Service
 
 
 	/**
-	 * return true if notifications should be enabled from window
-	 * 
-	 * @return
-	 */
-	public abstract boolean isNotificationEnabled();
-
-
-	/**
 	 * Implement this method to change modify the behavior and appearance of the window corresponding to the id.
 	 * 
 	 * <p>
@@ -1132,7 +1124,7 @@ public abstract class StandOutWindow extends Service
 		// add view to internal map
 		sWindowCache.putCache(id, getClass(), window);
 
-		if (isNotificationEnabled())
+		if (Utils.isSet(window.flags, StandOutFlags.FLAG_ENABLE_NOTIFICATIONS))
 		{
 			// get the persistent notification
 			Notification notification = getPersistentNotification(id);
