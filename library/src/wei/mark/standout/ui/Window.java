@@ -105,6 +105,8 @@ public class Window extends FrameLayout
 		mContext = context;
 		mLayoutInflater = LayoutInflater.from(context);
 
+		Log.i(TAG, "new Window created");
+
 		this.cls = context.getClass();
 		this.id = id;
 		this.originalParams = context.getParams(id, this);
@@ -459,8 +461,7 @@ public class Window extends FrameLayout
 			{
 				StandOutLayoutParams params = getLayoutParams();
 				boolean isMaximized = data.getBoolean(WindowDataKeys.IS_MAXIMIZED);
-				if (isMaximized && params.width == displayWidth && params.height == displayHeight && params.x == 0
-						&& params.y == 0)
+				if (isMaximized)
 				{
 					data.putBoolean(WindowDataKeys.IS_MAXIMIZED, false);
 					int oldWidth = data.getInt(WindowDataKeys.WIDTH_BEFORE_MAXIMIZE, -1);
