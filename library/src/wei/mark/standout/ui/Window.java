@@ -105,8 +105,6 @@ public class Window extends FrameLayout
 		mContext = context;
 		mLayoutInflater = LayoutInflater.from(context);
 
-		Log.i(TAG, "new Window created");
-
 		this.cls = context.getClass();
 		this.id = id;
 		this.originalParams = context.getParams(id, this);
@@ -114,9 +112,7 @@ public class Window extends FrameLayout
 		this.touchInfo = new TouchInfo();
 		touchInfo.ratio = (float) originalParams.width / originalParams.height;
 		this.data = new Bundle();
-		DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
-		displayWidth = metrics.widthPixels;
-		displayHeight = (int) (metrics.heightPixels - 25 * metrics.density);
+		setDisplaySize();
 
 		// create the window contents
 		View content;
@@ -180,6 +176,20 @@ public class Window extends FrameLayout
 
 		// attach the existing tag from the frame to the window
 		setTag(body.getTag());
+	}
+
+
+	public void setRatio(final float ratio)
+	{
+		touchInfo.ratio = ratio;
+	}
+
+
+	public void setDisplaySize()
+	{
+		DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
+		displayWidth = (int) (metrics.widthPixels * metrics.density);
+		displayHeight = (int) (metrics.heightPixels - 25 * metrics.density);
 	}
 
 
@@ -715,6 +725,7 @@ public class Window extends FrameLayout
 		 */
 		public Editor setSize(float percentWidth, float percentHeight)
 		{
+			setDisplaySize();
 			return setSize((int) (displayWidth * percentWidth), (int) (displayHeight * percentHeight));
 		}
 
@@ -823,6 +834,7 @@ public class Window extends FrameLayout
 		 */
 		public Editor setPosition(float percentWidth, float percentHeight)
 		{
+			setDisplaySize();
 			return setPosition((int) (displayWidth * percentWidth), (int) (displayHeight * percentHeight));
 		}
 
