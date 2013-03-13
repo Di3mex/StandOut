@@ -9,17 +9,21 @@
     <LinearLayout
         android:id="@+id/titlebar"
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="#ffffff"
         android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@android:color/black"
         android:orientation="horizontal"
-        android:padding="4dp" >
+         >
 
         <ImageView
             android:id="@+id/window_icon"
-            android:layout_width="32dp"
+            android:layout_width="32dp"          
             android:layout_height="32dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:contentDescription="@string/window_icon" />
 
         <TextView
@@ -44,14 +48,16 @@
             android:id="@+id/maximize"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@android:drawable/ic_menu_zoom"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_overlay_maximize_selector"
             android:contentDescription="@string/maximize" />
 
         <ImageView
             android:id="@+id/close"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/close"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_overlay_close_selector"
             android:contentDescription="@string/close" />
     </LinearLayout>
 
@@ -59,6 +65,7 @@
         android:id="@+id/body"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="@android:color/black"
         android:layout_below="@+id/titlebar" >
     </FrameLayout>
 
@@ -69,6 +76,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:contentDescription="@string/corner"
-        android:src="@drawable/corner" />
+        android:src="@drawable/ic_overlay_resize_selector" />
 
 </RelativeLayout>
