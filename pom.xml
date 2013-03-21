@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>standout-library</artifactId>
+	<groupId>wei.mark.standout</groupId>
+	<name>SlidingMenu example</name>
+	<packaging>apklib</packaging>
+
+	<properties>
+		<!-- Used by PMD Reporting to avoid Generics Warnings -->
+		<pmd.target.jdk>1.5</pmd.target.jdk>
+		<pmd.minimum.tokens>100</pmd.minimum.tokens>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<apk.prefix>standout-lib</apk.prefix>
+		<!-- -->
+		<java.version>1.6</java.version>
+		<android.version>4.0.1.2</android.version>
+		<android.platform>16</android.platform>
+
+		<android-maven.version>3.5.1</android-maven.version>
+
+		<compiler.version>2.5.1</compiler.version>
+		<findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
+		<pmd-maven-plugin.version>2.7.1</pmd-maven-plugin.version>
+
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<scope>provided</scope>
+			<version>4.1.1.4</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+
+		<plugins>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
