@@ -3,10 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>standout-library</artifactId>
+	<artifactId>standout</artifactId>
 	<groupId>wei.mark.standout</groupId>
-	<name>SlidingMenu example</name>
-	<packaging>apklib</packaging>
+	<version>1.0.0</version>
+	<name>Standout</name>
+	<packaging>pom</packaging>
+
+
+	<modules>
+		<module>library</module>
+	</modules>
+
 
 	<properties>
 		<!-- Used by PMD Reporting to avoid Generics Warnings -->
@@ -46,9 +53,15 @@
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
-				<extensions>true</extensions>
-			</plugin>
+				<version>3.5.1</version>
 
+				<configuration>
+					<sdk>
+						<platform>16</platform>
+					</sdk>
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
