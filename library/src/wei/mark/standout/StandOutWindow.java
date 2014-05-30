@@ -1945,6 +1945,15 @@ public abstract class StandOutWindow extends Service
 			width = w;
 			height = h;
 		}
+		
+		public StandOutLayoutParams(int id, int w, int h, int gravity) {
+			this(id);
+			width = w;
+			height = h;
+			x = 0;
+			y = 0;
+			this.gravity = gravity;
+		}
 
 
 		/**
